@@ -36,7 +36,10 @@ Then, you can run locally in development mode with live reload:
 ```
 npm run dev
 ```
-The local server is now running at http://localhost:4000
+The local server is up and you should see following in your terminal.
+```
+Server listening at http://localhost:4000
+```
 
 NOTE: If you change the value of `PORT` in the environment variable file then use the changed port at the end of above URL.
 
