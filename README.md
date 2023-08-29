@@ -31,7 +31,24 @@ JWT_SECRET=
 ```
 `DATABASE_URL` is the connection url to your  `PostgreSQL` server. `PORT` is set to 4000 by default but you can change it to the value of your liking. `JWT_SECRET` is your secret key string for signing JWT tokens. Please use a combination of alpha-numeric texts with special characters.
 
-Then, you can run locally in development mode with live reload:
+<details>
+ <summary><b>Optional: Database Migration</b></summary>
+
+  Since the assignment mentions that I should assume that the database schema and tables have already been created but does not provide any other information. If you want to run this project locally then you run migration using following command:
+
+  ```
+  npm run db:deploy
+  ```
+
+  The above command will also generate Prisma client to the project so that your database schema defined in Prisma syncs with the generated Types for Typescript. If you notice that the Prisma client's is not being generated as expected then you can manually generate Prisma client by using following command:
+  ```
+  npm run db:generate
+  ```
+</details>
+
+
+### Running locally
+After completing the installation you can run the application locally in your local machine:
 
 ```
 npm run dev
