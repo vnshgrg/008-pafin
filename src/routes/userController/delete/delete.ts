@@ -1,6 +1,6 @@
 import { type NextFunction, type Request, type Response } from 'express';
 
-import type { Principal } from '../../../types';
+import type { AuthenticatedRequest } from '../../../types';
 import { BadRequest, comparePassword, createDbClient } from '../../../utils';
 import type { DeleteModel } from './delete.model';
 
@@ -10,7 +10,7 @@ export const deleteAccount = async (
   next: NextFunction
 ) => {
   try {
-    const { principal } = req as Request & { principal: Principal };
+    const { principal } = req as AuthenticatedRequest;
     const { body }: DeleteModel = req;
     const { password } = body;
 

@@ -1,6 +1,6 @@
 import type { NextFunction, Request, Response } from 'express';
 
-import type { Principal } from '../types';
+import type { AuthenticatedRequest } from '../types';
 import { BadRequest, verify } from '../utils';
 
 export const authorize =
@@ -21,7 +21,7 @@ export const authorize =
         throw new BadRequest('Unauthorized');
       }
 
-      (req as Request & { principal: Principal }).principal = user;
+      (req as AuthenticatedRequest).principal = user;
       return next();
     } catch (err) {
       const error = err as BadRequest;

@@ -1,6 +1,6 @@
 import { type NextFunction, type Request, type Response } from 'express';
 
-import type { Principal } from '../../../types';
+import type { AuthenticatedRequest } from '../../../types';
 import {
   BadRequest,
   comparePassword,
@@ -15,7 +15,7 @@ export const changePassword = async (
   next: NextFunction
 ) => {
   try {
-    const { principal } = req as Request & { principal: Principal };
+    const { principal } = req as AuthenticatedRequest;
     const { body }: ChangePasswordModel = req;
     const { currentPassword, newPassword } = body;
 

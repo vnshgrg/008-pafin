@@ -1,6 +1,6 @@
 import { type NextFunction, type Request, type Response } from 'express';
 
-import type { Principal } from '../../../types';
+import type { AuthenticatedRequest } from '../../../types';
 import { createDbClient } from '../../../utils';
 import type { UpdateModel } from './update.model';
 
@@ -10,7 +10,7 @@ export const update = async (
   next: NextFunction
 ) => {
   try {
-    const { principal } = req as Request & { principal: Principal };
+    const { principal } = req as AuthenticatedRequest;
     const { body }: UpdateModel = req;
     const { name, email } = body;
 

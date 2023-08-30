@@ -1,6 +1,6 @@
 import type { User } from '@prisma/client';
 import type { NextFunction, Request, Response } from 'express';
-import omit from 'lodash.omit';
+import pick from 'lodash.pick';
 
 import type { Principal } from '../../../types';
 import {
@@ -41,17 +41,13 @@ export const login = async (
     }
 
     // remove raw password from being used
-    const principalData: Principal = omit(user, [
-      'password',
-      'createdAt',
-      'updatedAt',
-    ]);
-    const token = sign(principalData);
+    const principal: Principal = pick(user, ['id', 'name', 'email']);
+    const token = sign(principal);
 
     res.status(200).json({
       result: true,
       token,
-      data: principalData,
+      data: principal,
     });
   } catch (error) {
     next(error);
