@@ -23,7 +23,7 @@ app.use('/hello', (_req: Request, res: Response) => {
 app.use('/user', userRoutes);
 
 app.use((_, res, _2) => {
-  res.status(404).json({ error: 'NOT FOUND' });
+  res.status(404).json({ result: false, message: 'NOT FOUND' });
 });
 
 app.use(errorHandler);
