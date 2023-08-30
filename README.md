@@ -136,7 +136,7 @@ Below are the list of endpoints available within the API:
 
 #### UPDATE - Update user's password
 <details>
- <summary><code>PATCH</code> <code>/user/change-password</code> </summary>
+ <summary><code>PATCH</code> <code>/user/password</code> </summary>
 
 ##### Headers
 

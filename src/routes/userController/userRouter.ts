@@ -13,7 +13,7 @@ router.post('/', validate(registerSchema), register);
 router.post('/login', validate(loginSchema), login);
 router.patch('/', authorize(), validate(updateSchema), update);
 router.patch(
-  '/change-password',
+  '/password',
   authorize(),
   validate(changePasswordSchema),
   changePassword
